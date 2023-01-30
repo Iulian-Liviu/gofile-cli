@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFileWrapper", "GoFileWrapper\GoFileWrapper.csproj", "{A29684AB-E211-411A-9AC5-DC1ABE3467AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFileConsole", "GoFileConsole\GoFileConsole.csproj", "{E50001BC-94B7-48E1-889B-2C6619162BC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A29684AB-E211-411A-9AC5-DC1ABE3467AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29684AB-E211-411A-9AC5-DC1ABE3467AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29684AB-E211-411A-9AC5-DC1ABE3467AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29684AB-E211-411A-9AC5-DC1ABE3467AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E50001BC-94B7-48E1-889B-2C6619162BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50001BC-94B7-48E1-889B-2C6619162BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50001BC-94B7-48E1-889B-2C6619162BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50001BC-94B7-48E1-889B-2C6619162BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
