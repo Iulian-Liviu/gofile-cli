@@ -5,6 +5,8 @@ using GoFileWrapper;
 using GoFileWrapper.Models;
 
 [assembly: AssemblyVersion("1.0.0.*")]
+[assembly: AssemblyProduct("gofile-cli")]
+
 
 namespace GoFileConsole;
 
@@ -49,11 +51,11 @@ public class Program
                     if (server.Status!.Contains("ok"))
                     {
                         WriteInfo($"Uploading {Path.GetFileNameWithoutExtension(file)}");
-                        if (string.IsNullOrEmpty(uploadArguments.AccountToken))
+                        if (!string.IsNullOrEmpty(uploadArguments.AccountToken))
                             WriteInfo(
                                 $"Uploading {Path.GetFileNameWithoutExtension(file)} on the account token {uploadArguments.AccountToken} .");
 
-                        if (string.IsNullOrEmpty(uploadArguments.FolderId))
+                        if (!string.IsNullOrEmpty(uploadArguments.FolderId))
                             WriteInfo(
                                 $"Uploading {Path.GetFileNameWithoutExtension(file)} in the folder with id : {uploadArguments.FolderId} .");
 
@@ -138,10 +140,14 @@ public class Program
 
     private static void WriteUploadedFilesTable(FileData[] datas)
     {
+        Console.WriteLine("\n");
+
         ConsoleTable
             .From(datas)
             .Configure(o => { o.NumberAlignment = Alignment.Left; })
             .Write(Format.MarkDown);
+        Console.WriteLine("\n");
+
     }
 
     private static void WriteAccountTable(AccountData[] datas)
