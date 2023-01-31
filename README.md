@@ -1,10 +1,14 @@
-﻿# gofile-cli
+﻿## gofile-cli 
 
 gofile-cli is a command line tool that allows you to easily upload files to the GoFiles service (https://gofile.io/) directly from your Linux terminal. With gofile-cli, you can quickly and easily upload files of any size, without having to navigate through a web interface.
 
 The application is built using C#, which allows for a smooth and efficient experience. It also supports multiple file uploads at once, making it the perfect tool for developers and power users who need to frequently upload files to GoFiles.
 
 **Disclaimer:** gofile-cli is currently in beta, so please use it at your own risk and report any bugs you find to the author.
+
+### Need help 
+   Please if you know C# and you want to build something as a first project, please help me.
+   I don't have much time because of work, so I look for people who can help.
 
 ## Release
 
@@ -14,13 +18,22 @@ The first release of gofile-cli is version 1.0.0 . It includes the following fea
 - Support for multiple file uploads at once
 - Built using C# for a smooth and efficient experience
 - Compatible with Linux/Windows systems
+- Account information getter
+- Uploading files directly to your account 
+- Beautiful table output format 
+- Errors output is pretty (still scary) 😊 
 
-#### Tasks (Todos) 
+### Tasks (Todos) 
 - [ ] An progress bar, yet! (Still finding a way to make it).
-- [ ] Account information getting.
+- [ ] Creating folder in the account root directory using account token.
+- [ ] Setting folders permissions, expiration date.
+- [ ] Deleting folder content
+
+### Todos Done (Tasks)
 - [x] Uploading multiple files.
 - [x] Uploading files to your account using token argument.
-
+- [x] Uploading files to folder id.
+- [x] Getting account information using account token.
 ***
     # For Linux systems I will build the executable later.
     # Thanks for understanding.
