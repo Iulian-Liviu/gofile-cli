@@ -1,40 +1,37 @@
 ﻿using System.Reflection;
-using System.Data.Common;
-using System.Net.NetworkInformation;
 using CommandLine;
 using ConsoleTables;
 using GoFileWrapper;
 using GoFileWrapper.Models;
-using Newtonsoft.Json.Linq;
 
 [assembly: AssemblyVersion("1.0.0.*")]
 
 namespace GoFileConsole;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 public class Program
 {
-    private static readonly GoFileClient _client = new();
-    private static readonly CancellationTokenSource _cancellationTokenSource = new();
+    private static readonly GoFileClient Client = new();
+    private static readonly CancellationTokenSource CancellationTokenSource = new();
     private static bool _isRunning = true;
 
 
     public static async Task Main(string[] args)
     {
-        Console.CancelKeyPress += (sender, eventArgs) =>
+        Console.CancelKeyPress += (_, _) =>
         {
             Console.WriteLine("CTRL + C was pressed.");
             //_isRunning = false;
 
-            _cancellationTokenSource.Cancel();
+            CancellationTokenSource.Cancel();
             WriteInfo("CANCELED : by USER");
             _isRunning = false;
         };
-        var result = await
+        await
             (await Parser.Default
-                        .ParseArguments<UploadArguments, AccountArguments>(args)
-                        .WithParsedAsync<UploadArguments>(options => UploadFile(options)))
-                    .WithParsedAsync<AccountArguments>(options => GetAccountInformation(options));
-        
+                .ParseArguments<UploadArguments, AccountArguments>(args)
+                .WithParsedAsync<UploadArguments>(options => UploadFile(options)))
+            .WithParsedAsync<AccountArguments>(options => GetAccountInformation(options));
     }
 
     private static async Task UploadFile(UploadArguments uploadArguments)
@@ -46,26 +43,23 @@ public class Program
 
                 foreach (var file in uploadArguments.Files)
                 {
-                    var server = await _client.GetAvailableServerAsync(_cancellationTokenSource.Token);
+                    var server = await Client.GetAvailableServerAsync(CancellationTokenSource.Token);
                     WriteInfo($"Uploading {uploadArguments.Files.Count()} file.");
                     WriteInfo($"server {server.Data!.Server} : status {server.Status}");
                     if (server.Status!.Contains("ok"))
                     {
                         WriteInfo($"Uploading {Path.GetFileNameWithoutExtension(file)}");
                         if (string.IsNullOrEmpty(uploadArguments.AccountToken))
-                        {
-                            WriteInfo($"Uploading {Path.GetFileNameWithoutExtension(file)} on the account token {uploadArguments.AccountToken} .");
-
-                        }
+                            WriteInfo(
+                                $"Uploading {Path.GetFileNameWithoutExtension(file)} on the account token {uploadArguments.AccountToken} .");
 
                         if (string.IsNullOrEmpty(uploadArguments.FolderId))
-                        {
-                            WriteInfo($"Uploading {Path.GetFileNameWithoutExtension(file)} in the folder with id : {uploadArguments.FolderId} .");
-
-                        }
+                            WriteInfo(
+                                $"Uploading {Path.GetFileNameWithoutExtension(file)} in the folder with id : {uploadArguments.FolderId} .");
 
                         var fileResponse =
-                            await _client.UploadFileAsync(file, server.Data?.Server!, _cancellationTokenSource.Token, uploadArguments.AccountToken, uploadArguments.FolderId);
+                            await Client.UploadFileAsync(file, server.Data?.Server!, CancellationTokenSource.Token,
+                                uploadArguments.AccountToken, uploadArguments.FolderId);
                         if (fileResponse.Status == "ok")
                         {
                             uploadedFiles.Add(fileResponse.Data!);
@@ -103,18 +97,18 @@ public class Program
     {
         while (_isRunning)
         {
-            var account = await _client.GetAccountInfoAsync(accountArguments.Token!, _cancellationTokenSource.Token);
+            var account = await Client.GetAccountDetailsAsync(accountArguments.Token!, CancellationTokenSource.Token);
             if (account.Status == "ok")
             {
-                WriteAccountTable(new [] {account.Data!});
+                WriteAccountTable(new[] { account.Data! });
                 _isRunning = false;
             }
             else
             {
                 WriteInfo(account.Status!);
                 _isRunning = false;
-
             }
+
             _isRunning = false;
         }
     }
@@ -145,19 +139,16 @@ public class Program
     private static void WriteUploadedFilesTable(FileData[] datas)
     {
         ConsoleTable
-            .From<FileData>(datas)
-            .Configure(o =>
-            {
-                o.NumberAlignment = Alignment.Left;
-            })
+            .From(datas)
+            .Configure(o => { o.NumberAlignment = Alignment.Left; })
             .Write(Format.MarkDown);
-
     }
+
     private static void WriteAccountTable(AccountData[] datas)
     {
         Console.WriteLine("\n");
         ConsoleTable
-            .From<AccountData>(datas)
+            .From(datas)
             .Configure(o =>
             {
                 o.NumberAlignment = Alignment.Left;
@@ -165,25 +156,28 @@ public class Program
             })
             .Write(Format.MarkDown);
         Console.WriteLine("\n");
-
     }
 
     #endregion
 
     #region Console Arguments Classes
 
-    [Verb("upload", false, HelpText = "The upload command")]
+    [Verb("upload", HelpText = "The upload command")]
     private class UploadArguments
     {
+
         [Option('f', "files", HelpText = "The files that you want to upload.", Required = true)]
         // ReSharper disable once CollectionNeverUpdated.Local
 #pragma warning disable CS8618
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public IEnumerable<string> Files { get; set; }
 
-        [Option(shortName:'t', longName:"token", HelpText = "Adds the file to an account using the account token.")]
+        [Option('t', "token", HelpText = "Adds the file to an account using the account token.")]
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public string AccountToken { get; set; }
 
-        [Option(shortName:'i', "folder-id", HelpText = "Uploads the files to a folder if specified by the user.")]
+        [Option('i', "folder-id", HelpText = "Uploads the files to a folder if specified by the user.")]
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         public string FolderId { get; set; }
 #pragma warning restore CS8618
     }
@@ -191,10 +185,10 @@ public class Program
     [Verb("account", HelpText = "Get information about an account using an account token.")]
     private class AccountArguments
     {
-        [Option('t', "token", Required = true, HelpText= "The token of the account you want to get information.")]
-        public string? Token { get; set; }  
+        [Option('t', "token", Required = true, HelpText = "The token of the account you want to get information.")]
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
+        public string? Token { get; set; }
     }
-    
-    #endregion
 
+    #endregion
 }
