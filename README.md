@@ -27,7 +27,8 @@ The first release of gofile-cli is version 1.0.0 . It includes the following fea
 - [ ] An progress bar, yet! (Still finding a way to make it).
 - [ ] Creating folder in the account root directory using account token.
 - [ ] Setting folders permissions, expiration date.
-- [ ] Deleting folder content
+- [ ] Deleting folder content.
+- [ ] Copy content from one folder to another.
 
 ### Todos Done (Tasks)
 - [x] Uploading multiple files.
