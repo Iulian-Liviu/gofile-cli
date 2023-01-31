@@ -50,7 +50,7 @@ You can also contact me on discord, my username is **Julian#1234**
 
 ## Help & Reviews
 
-If you need help using gofile-cli, please refer to the [wiki](https://github.com/Julian/gofile-cli/wiki) for detailed instructions on how to use the application. If you have any issues or bugs to report, please open an issue on the [repository](https://github.com/Julian/gofile-cli/issues).
+If you need help using gofile-cli, please refer to the wiki(only if the project gets bigger, it should self explanatory) for detailed instructions on how to use the application. If you have any issues or bugs to report, please open an issue on the [repository](https://github.com/Julian/gofile-cli/issues).
 
 If you enjoyed using gofile-cli, please leave a review on the [repository](https://github.com/Julian/gofile-cli) to help others discover it. Your feedback is greatly appreciated!
 
