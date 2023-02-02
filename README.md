@@ -6,6 +6,9 @@ The application is built using C#, which allows for a smooth and efficient exper
 
 **Disclaimer:** gofile-cli is currently in beta, so please use it at your own risk and report any bugs you find to the author.
 
+
+### **Disclaimer:** For premium user only, this api wrapper doesn't implement any functionality for premium accounts.You may ask why, but I don't have the capital to buy the premium version.
+
 ### Need help 
    Please if you know C# and you want to build something as a first project, please help me.
    I don't have much time because of work, so I look for people who can help.
@@ -24,11 +27,13 @@ The first release of gofile-cli is version 1.0.0 . It includes the following fea
 - Errors output is pretty (still scary) 😊 
 
 ### Tasks (Todos) 
-- [ ] An progress bar, yet! (Still finding a way to make it).
-- [ ] Creating folder in the account root directory using account token.
-- [ ] Setting folders permissions, expiration date.
-- [ ] Deleting folder content.
-- [ ] Copy content from one folder to another.
+- [ ] A progress bar, yet! (Still finding a way to make it).
+- [ ] Creating folder in the account root directory using account token. (Premium feature 💵)
+- [ ] Setting folders permissions, expiration date. (Premium feature 💵)
+- [ ] Deleting folder content. (Premium feature 💵)
+- [ ] Copy content from one folder to another. (Premium feature 💵)
+
+If you want to implement the premium features, please make a pull request and will verify and merge into the master repository.
 
 ### Todos Done (Tasks)
 - [x] Uploading multiple files.
@@ -50,15 +55,15 @@ You can also contact me on discord, my username is **Julian#1234**
 
 ## Help & Reviews
 
-If you need help using gofile-cli, please refer to the wiki(only if the project gets bigger, it should self explanatory) for detailed instructions on how to use the application. If you have any issues or bugs to report, please open an issue on the [repository](https://github.com/Julian/gofile-cli/issues).
+If you need help using gofile-cli, please refer to the wiki(only if the project gets bigger, it should self-explanatory) for detailed instructions on how to use the application. If you have any issues or bugs to report, please open an issue on the [repository](https://github.com/Julian/gofile-cli/issues).
 
 If you enjoyed using gofile-cli, please leave a review on the [repository](https://github.com/Julian/gofile-cli) to help others discover it. Your feedback is greatly appreciated!
 
 ## Contributing
 
-If you are interested in contributing to gofile-cli, we would love to have your help! Here are some ways you can contribute:
+If you are interested in contributing to gofile-cli, I would love to have your help! Here are some ways you can contribute:
 
-- **Report bugs**: If you find a bug in gofile-cli, please report it on the [issues](https://github.com/Julian/gofile-cli/issues) page so we can fix it.
+- **Report bugs**: If you find a bug in gofile-cli, please report it on the [issues](https://github.com/Julian/gofile-cli/issues) page, so we can fix it.
 - **Fix bugs**: If you know how to fix a bug, please feel free to submit a pull request with your changes.
 - **Add new features**: If you have a new idea for a feature, please open an issue to discuss it before starting to work on it.
 - **Documentation**: If you find that the documentation can be improved, please feel free to make changes and submit a pull request.
