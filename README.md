@@ -49,21 +49,21 @@ If you want to implement the premium features, please make a pull request and wi
 ***
 ## Author
 
-This application was created by [Julian](https://github.com/Julian/) using C#. Feel free to reach out to me if you have any questions or issues with gofile-cli. If you have any feature request or bug report, you can open an issue on the repository.
+This application was created by [Julian](https://github.com/Iulian-Liviu/) using C#. Feel free to reach out to me if you have any questions or issues with gofile-cli. If you have any feature request or bug report, you can open an issue on the repository.
 
-You can also contact me on discord, my username is **Julian#1234**
+You can also contact me on discord, my username is **Iulian-Liviu#3173**
 
 ## Help & Reviews
 
 If you need help using gofile-cli, please refer to the wiki(only if the project gets bigger, it should self-explanatory) for detailed instructions on how to use the application. If you have any issues or bugs to report, please open an issue on the [repository](https://github.com/Julian/gofile-cli/issues).
 
-If you enjoyed using gofile-cli, please leave a review on the [repository](https://github.com/Julian/gofile-cli) to help others discover it. Your feedback is greatly appreciated!
+If you enjoyed using gofile-cli, please leave a review on the [repository](https://github.com/Iulian-Liviu/gofile-cli) to help others discover it. Your feedback is greatly appreciated!
 
 ## Contributing
 
 If you are interested in contributing to gofile-cli, I would love to have your help! Here are some ways you can contribute:
 
-- **Report bugs**: If you find a bug in gofile-cli, please report it on the [issues](https://github.com/Julian/gofile-cli/issues) page, so we can fix it.
+- **Report bugs**: If you find a bug in gofile-cli, please report it on the [issues](https://github.com/Iulian-Liviu/gofile-cli/issues) page, so we can fix it.
 - **Fix bugs**: If you know how to fix a bug, please feel free to submit a pull request with your changes.
 - **Add new features**: If you have a new idea for a feature, please open an issue to discuss it before starting to work on it.
 - **Documentation**: If you find that the documentation can be improved, please feel free to make changes and submit a pull request.
