@@ -60,8 +60,7 @@ public class Program
                                 $"Uploading {Path.GetFileNameWithoutExtension(file)} in the folder with id : {uploadArguments.FolderId} .");
 
                         var fileResponse =
-                            await Client.UploadFileAsync(file, server.Data?.Server!, CancellationTokenSource.Token,
-                                uploadArguments.AccountToken, uploadArguments.FolderId);
+                            await Client.UploadFileAsync(file, server.Data?.Server!, uploadArguments.AccountToken, uploadArguments.FolderId, CancellationTokenSource.Token);
                         if (fileResponse.Status == "ok")
                         {
                             uploadedFiles.Add(fileResponse.Data!);

@@ -11,8 +11,8 @@ public interface IGoFileClient
     Task<ServerResponse> GetAvailableServerAsync(CancellationToken token = default);
 
 // Upload a file to the GoFile service
-    Task<UploadResponse> UploadFileAsync(string filePath, string server, CancellationToken token = default,
-        string accountToken = "", string folderId = "");
+    Task<UploadResponse> UploadFileAsync(string filePath, string server,
+        string accountToken = "", string folderId = "", CancellationToken token = default);
 
 // Get account details for the given token
     Task<AccountResponse> GetAccountDetailsAsync(string accountToken, CancellationToken token);
